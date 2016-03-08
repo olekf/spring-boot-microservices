@@ -5,22 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.sandbox</groupId>
         <artifactId>spring-boot-microservices</artifactId>
+        <groupId>org.sandbox</groupId>
         <version>1.0.0.BUILD-SNAPSHOT</version>
     </parent>
 
-    <artifactId>configuration-service</artifactId>
+    <artifactId>eureka-service-registry</artifactId>
     <packaging>jar</packaging>
 
     <properties>
-        <start-class>org.sandbox.ConfigurationServiceApplication</start-class>
+        <start-class>org.sandbox.EurekaServiceApplication</start-class>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
     </dependencies>
 </project>
