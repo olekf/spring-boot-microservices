@@ -2,6 +2,7 @@ package org.sandbox;
 
 import org.sandbox.speaker.Speaker;
 import org.sandbox.speaker.SpeakerRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.health.Health;
@@ -21,9 +22,9 @@ public class ConferenceServiceApplication {
     }
 
     @Bean
-    CommandLineRunner runner(SpeakerRepository speakerRepository) {
+    CommandLineRunner runner(SpeakerRepository speakerRepository, @Value("${conference.speakers}") String speakers) {
         return args -> {
-            asList("Josh Long,Mikalai Alimenkou,Yakov Fain,Vladimir Tsukur".split(","))
+            asList(speakers.split(","))
                     .forEach(name -> speakerRepository.save(new Speaker(name)));
 
             speakerRepository.findAll().forEach(System.out::println);
