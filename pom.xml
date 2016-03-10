@@ -23,6 +23,7 @@
         <module>eureka-service-registry</module>
         <module>conference-service</module>
         <module>conference-service-client</module>
+        <module>hystrix-dashboard</module>
     </modules>
 
     <build>
